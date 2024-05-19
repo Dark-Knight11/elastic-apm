@@ -54,3 +54,11 @@ docker-compose up -d
 ## API Docs
 
 Visit `/docs` endpoint for API documentation
+
+## Generating Fingerprint and Certificate for Fleet server
+
+in elastic container
+```bash
+$ cd config/certs/ca
+$ openssl x509 -fingerprint -sha256 -noout -in ca.crt | awk -F"=" {' print $2 '} | sed s/://g
+```

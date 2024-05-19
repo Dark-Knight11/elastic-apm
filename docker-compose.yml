@@ -182,7 +182,6 @@ services:
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
       - ELASTIC_HOSTS=https://es01:9200
       - KIBANA_HOSTS=https://kibana:5601
-      - LOGSTASH_HOSTS=http://logstash01:9600
       - CA_CERT=certs/ca/ca.crt
       - ES_CERT=certs/es01/es01.crt
       - ES_KEY=certs/es01/es01.key
@@ -231,14 +230,13 @@ services:
     container_name: nestjs_api_prod
     image: nestjs-api-prod:1.0.0
     depends_on:
-        - fleet-server
+      - fleet-server
     build:
-        context: .
-        dockerfile: ./Dockerfile
+      context: .
+      dockerfile: ./Dockerfile
     command: npm run start:prod
     ports:
-        - 3000:3000
+      - 3000:3000
     volumes:
-        - .:/usr/src/app
-        - /usr/src/app/node_modules
+      - .:/usr/src/app
     restart: unless-stopped

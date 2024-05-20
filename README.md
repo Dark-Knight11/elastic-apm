@@ -45,7 +45,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Running in Docker
+## Running Elastic Stack in Docker
 
 ```bash
 docker-compose up -d 

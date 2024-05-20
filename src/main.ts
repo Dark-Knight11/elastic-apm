@@ -2,10 +2,10 @@ import 'dotenv/config';
 console.log(process.env.ELASTIC_APM_SECRET_TOKEN);
 import apm from 'elastic-apm-node';
 apm.start({
-  serverUrl: 'http://localhost:8200',
+  serverUrl: process.env.ELASTIC_APM_SERVER_URL,
   secretToken: process.env.ELASTIC_APM_SECRET_TOKEN,
-  serviceName: 'my-service-name',
-  environment: 'my-environment',
+  serviceName: process.env.ELASTIC_APM_SERVICE_NAME,
+  environment: process.env.ELASTIC_APM_ENVIRONMENT,
 });
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
